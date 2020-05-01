@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/psbrandt/openmrs-contrib-sheilds#readme",
   "dependencies": {
-    "bamboo-api": "0.0.5",
+    "bamboo-api": "0.0.9",
     "express": "^4.13.4",
     "request": "^2.69.0"
   }
