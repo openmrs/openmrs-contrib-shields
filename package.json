@@ -1,25 +1,25 @@
 {
-  "name": "openmrs-contrib-sheilds",
+  "name": "openmrs-contrib-shields",
   "version": "1.0.0",
-  "description": "Sheild API for OpenMS Modules",
+  "description": "Shield API for OpenMS Modules",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/psbrandt/openmrs-contrib-sheilds.git"
+    "url": "git+https://github.com/openmrs/openmrs-contrib-shields.git"
   },
   "keywords": [
     "openmrs",
-    "sheilds"
+    "shields"
   ],
-  "author": "OpenMRS <pascal@openmrs.org> (http://openmrs.org)",
+  "author": "OpenMRS <pascal@openmrs.org> (https://openmrs.org)",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/psbrandt/openmrs-contrib-sheilds/issues"
+    "url": "https://github.com/openmrs/openmrs-contrib-shields/issues"
   },
-  "homepage": "https://github.com/psbrandt/openmrs-contrib-sheilds#readme",
+  "homepage": "https://github.com/openmrs/openmrs-contrib-shields#readme",
   "dependencies": {
     "bamboo-api": "0.0.9",
     "express": "^4.13.4",

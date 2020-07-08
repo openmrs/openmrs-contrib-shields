@@ -4,11 +4,11 @@
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
  */
-var Bamboo = require('bamboo-api');
-var request = require('request');
-var constants = require('./constants');
+var Bamboo = require("bamboo-api");
+var request = require("request");
+var constants = require("./constants");
 
-exports.build = function(req, res) {
+exports.build = function (req, res) {
   var project = req.params.project;
   var plan = req.params.plan;
 
@@ -16,20 +16,20 @@ exports.build = function(req, res) {
   var style = req.query.style;
 
   var bamboo = new Bamboo(constants.OPENMRS_BAMBOO_URL);
-  var url = constants.SHEILDS_IO_BASE;
+  var url = constants.SHIELDS_IO_BASE;
 
-  bamboo.getLatestBuildStatus(project + '-' + plan, function(error, result) {
+  bamboo.getLatestBuildStatus(project + "-" + plan, function (error, result) {
     if (error) {
-      url += 'build-unknown-lightgrey.svg';
+      url += "build-unknown-lightgrey.svg";
     } else if (result === "Successful") {
-      url += 'build-passing-green.svg';
+      url += "build-passing-green.svg";
     } else if (result === "Failed") {
-      url += 'build-failing-red.svg';
+      url += "build-failing-red.svg";
     } else {
-      url += 'build-unknown-lightgrey.svg';
+      url += "build-unknown-lightgrey.svg";
     }
 
-    url += '?' + constants.buildQueryParams(logo, style);
+    url += "?" + constants.buildQueryParams(logo, style);
 
     request(url).pipe(res);
   });

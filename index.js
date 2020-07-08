@@ -4,17 +4,17 @@
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
  */
-var express = require('express');
+var express = require("express");
 var app = express();
-var build = require('./routes/build');
-var version = require('./routes/version');
-var plan = require('./routes/plan');
-var custom = require('./routes/custom');
+var build = require("./routes/build");
+var version = require("./routes/version");
+var plan = require("./routes/plan");
+var custom = require("./routes/custom");
 
-app.get('/build/:project/:plan', build.build);
-app.get('/plan/:project/:plan', plan.plan);
-app.get('/version/:moduleid', version.version);
-app.get('/omrsversion/:moduleid', version.omrsversion);
-app.get('/custom/:label/:value/:color', custom.custom);
+app.get("/build/:project/:plan", build.build);
+app.get("/plan/:project/:plan", plan.plan);
+app.get("/version/:moduleid", version.version);
+app.get("/omrsversion/:moduleid", version.omrsversion);
+app.get("/custom/:label/:value/:color", custom.custom);
 
-app.listen(process.env.OMRS_SHEILDS_PORT || 3033, function() {});
+app.listen(process.env.OMRS_SHIELDS_PORT || 3033, function () {});

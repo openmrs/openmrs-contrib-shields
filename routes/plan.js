@@ -4,15 +4,15 @@
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
  */
-var Bamboo = require('bamboo-api');
-var request = require('request');
-var constants = require('./constants');
+var Bamboo = require("bamboo-api");
+var request = require("request");
+var constants = require("./constants");
 
 function sanitize(str) {
-  return str.replace(new RegExp('-', 'g'), '--');
+  return str.replace(new RegExp("-", "g"), "--");
 }
 
-exports.plan = function(req, res) {
+exports.plan = function (req, res) {
   var project = req.params.project;
   var plan = req.params.plan;
 
@@ -20,21 +20,21 @@ exports.plan = function(req, res) {
   var style = req.query.style;
 
   var bamboo = new Bamboo(constants.OPENMRS_BAMBOO_URL);
-  var url = constants.SHEILDS_IO_BASE;
+  var url = constants.SHIELDS_IO_BASE;
 
-  bamboo.getLatestBuildStatus(project + '-' + plan, function(error, result) {
-    var label = project + ' ' + plan;
+  bamboo.getLatestBuildStatus(project + "-" + plan, function (error, result) {
+    var label = project + " " + plan;
     if (error) {
-      url += sanitize(label) + '-unknown-lightgrey.svg';
+      url += sanitize(label) + "-unknown-lightgrey.svg";
     } else if (result === "Successful") {
-      url += sanitize(label) + '-passing-green.svg';
+      url += sanitize(label) + "-passing-green.svg";
     } else if (result === "Failed") {
-      url += sanitize(label) + '-failing-red.svg';
+      url += sanitize(label) + "-failing-red.svg";
     } else {
-      url += sanitize(label) + '-unknown-lightgrey.svg';
+      url += sanitize(label) + "-unknown-lightgrey.svg";
     }
 
-    url += '?' + constants.buildQueryParams(logo, style);
+    url += "?" + constants.buildQueryParams(logo, style);
 
     request(url).pipe(res);
   });
