@@ -5,3 +5,7 @@ services:
     build: .
     ports:
       - "80:3033"
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 10s
+    restart: always
